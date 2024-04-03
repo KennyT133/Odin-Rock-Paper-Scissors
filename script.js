@@ -1,9 +1,14 @@
 var playerChoice;
+const rockButton = document.querySelector("#rockbtn");
+const paperButton = document.querySelector("#paper");
+const scissorButton = document.querySelector("#scissor");
 function getComputerChoice(){
     const choices = ["Rock","Paper","Scissors"];
     let random = Math.floor(Math.random() *3);
     return choices[random];
 }
+
+
 function getPlayerChoice(){
     playerChoice = prompt("Please enter: Rock, Paper, Scissors");
     return playerChoice;
@@ -36,9 +41,23 @@ function playRound(playerSelection,computerSelection){
     return("computer");
     
 }
+
+    rockButton.addEventListener("click", function(e) {
+        playerChoice = "rock";
+        playRound(playerChoice,getComputerChoice());
+    });
+    paperButton.addEventListener("click",function(e){
+        playerChoice = "paper";
+        playRound(playerChoice,getComputerChoice());
+    });
+    scissorButton.addEventListener("click",function(e){
+        playerChoice = "scissors";
+        playRound(playerChoice,getComputerChoice());
+    });
 function playGame(){
     let computerScore = 0;
     let playerScore = 0;
+    /*
     for(let i = 0; i < 5; i++){
         let result = playRound(getPlayerChoice(),getComputerChoice());
         if(result == "tie"){
@@ -59,5 +78,6 @@ function playGame(){
             console.log("Player score is: ",playerScore);
         }
     }
+    */
 }
 playGame();
